@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@android:color/transparent">
+    <!--All Operators Filter Option-->
+    <TextView
+        android:id="@+id/tv_all_operators"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/operator_dialog_iv_size"
+        android:layout_margin="@dimen/vertical_margin_10spd"
+        android:background="@drawable/filter_option_border_bg"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:contentDescription="@string/division"
+        android:gravity="center"
+        android:text="@string/all_operators_filter_txt"
+        android:textColor="@color/orange"
+        tools:ignore="UnusedAttribute" />
+    <!--Multiplication Filter Option-->
+    <ImageView
+        android:id="@+id/iv_multiplication_logo"
+        android:layout_width="@dimen/operator_dialog_iv_size"
+        android:layout_height="@dimen/operator_dialog_iv_size"
+        android:src="@drawable/ic_multiplication_logo"
+        android:contentDescription="@string/multiplication"
+        android:layout_margin="@dimen/vertical_margin_10spd"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+    <!--Division Filter Option-->
+    <ImageView
+        android:id="@+id/iv_division_logo"
+        android:layout_width="@dimen/operator_dialog_iv_size"
+        android:layout_height="@dimen/operator_dialog_iv_size"
+        android:src="@drawable/ic_division_logo"
+        android:contentDescription="@string/division"
+        android:layout_margin="@dimen/vertical_margin_10spd"
+        android:background="?attr/selectableItemBackgroundBorderless"/>
+</LinearLayout>

@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="@dimen/standard_padding"
+    android:background="@color/green">
+
+    <!--  Multiplication Number Table title  -->
+    <LinearLayout
+        android:id="@+id/ll_multiplication_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/ic_multiplication_logo"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/image"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_a_number"
+            android:fontFamily="@font/cherry_cream_soda"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/_25sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/ic_multiplication_logo"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/image"
+            />
+
+    </LinearLayout>
+
+    <!--  Division Number Table title  -->
+    <LinearLayout
+        android:id="@+id/ll_division_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:visibility="gone"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/ic_division_logo"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/image"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pick_a_number"
+            android:fontFamily="@font/cherry_cream_soda"
+            android:textColor="@color/yellow"
+            android:textSize="@dimen/_25sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            />
+
+        <ImageView
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/ic_division_logo"
+            android:scaleType="fitXY"
+            android:contentDescription="@string/image"
+            />
+    </LinearLayout>
+
+    <!--    Number 1 and 2 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/btn_one"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_1"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_1"
+            />
+
+        <ImageView
+            android:id="@+id/btn_two"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_2"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_2"/>
+    </LinearLayout>
+
+    <!--    Number 3 and 4 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/btn_three"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_3"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_3"/>
+
+        <ImageView
+            android:id="@+id/btn_four"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_4"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_4"/>
+    </LinearLayout>
+
+    <!--    Number 5 and 6 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/btn_five"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_5"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_5"/>
+
+        <ImageView
+            android:id="@+id/btn_six"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_6"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_6"/>
+    </LinearLayout>
+
+    <!--    Number 7 and 8 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/btn_seven"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_7"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_7"/>
+
+        <ImageView
+            android:id="@+id/btn_eight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_8"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_8" />
+    </LinearLayout>
+
+    <!--    Number 9 and 10-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/btn_nine"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_9"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_9"/>
+
+        <ImageView
+            android:id="@+id/btn_ten"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_10"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_10"/>
+    </LinearLayout>
+
+    <!--    Number 11 and 12   -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="horizontal"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/btn_eleven"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_11"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_11"/>
+
+        <ImageView
+            android:id="@+id/btn_twelve"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/number_table_iv_height"
+            android:layout_weight="1"
+            android:contentDescription="@string/number_12"
+            android:background="?attr/selectableItemBackground"
+            android:src="@drawable/ic_number_12"/>
+    </LinearLayout>
+</LinearLayout>

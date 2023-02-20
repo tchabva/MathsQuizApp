@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.fragments.QuizQuestionsFragment"
+    android:orientation="vertical"
+    android:background="@color/green"
+    android:padding="@dimen/standard_padding"
+    android:gravity="center_horizontal">
+
+    <!-- Question  -->
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_40sdp"
+        android:textColor="@color/yellow"
+        tools:text="4x4 = ?"
+        android:gravity="center"
+        android:textSize="@dimen/quiz_question_text_size"
+        android:textStyle="bold"
+        android:fontFamily="@font/cherry_cream_soda"/>
+
+
+    <!--Progress Bar-->
+    <LinearLayout
+        android:id="@+id/ll_progress_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="@dimen/vertical_margin_10spd">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:max="12"
+            android:minHeight="@dimen/progress_bar_min_height"
+            android:progress="0"
+            android:indeterminate="false"
+            android:backgroundTint="@color/orange"/>
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/padding_15sdp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="@dimen/small_text_size"
+            tools:text="0/12"/>
+
+    </LinearLayout>
+
+    <!--Answer Edit Text-->
+    <EditText
+        android:id="@+id/et_answer_box"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/vertical_margin_10spd"
+        android:background="@drawable/default_option_border_bg"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:inputType="number"
+        android:padding="@dimen/padding_15sdp"
+        android:textColor="@color/yellow"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold"
+        android:hint="@string/answer_here_quiz_et_hint"
+        android:fontFamily="@font/cherry_cream_soda"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
+
+    <!--Submit Button-->
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="@dimen/vertical_margin_10spd"
+        android:background="@drawable/rounded_corners"
+        android:text="@string/submit_btn_text"
+        android:textColor="@color/black"
+        android:padding="@dimen/padding_5sdp"
+        android:textSize="@dimen/medium_text_size"
+        android:textStyle="bold"
+        android:fontFamily="@font/cherry_cream_soda"/>
+</LinearLayout>

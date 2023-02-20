@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name">Maths Quiz</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cv_welcome_txt">Welcome</string>
+    <string name="number_1">1</string>
+    <string name="no_data_available">NO DATA AVAILABLE</string>
+    <string name="number_12">12</string>
+    <string name="number_11">11</string>
+    <string name="number_2">2</string>
+    <string name="number_3">3</string>
+    <string name="number_4">4</string>
+    <string name="number_5">5</string>
+    <string name="number_6">6</string>
+    <string name="number_7">7</string>
+    <string name="number_8">8</string>
+    <string name="number_9">9</string>
+    <string name="number_10">10</string>
+    <string name="division_fl_iv">Division</string>
+    <string name="multiplication_fl_iv">Multiplication</string>
+    <string name="cv_instruction">Please enter your name</string>
+    <string name="card_view_btn_text">Start</string>
+    <string name="et_hint">Name</string>
+    <string name="test_history_btn_text">Test History</string>
+    <string name="answer_here_quiz_et_hint">ANSWER HERE</string>
+    <string name="submit_btn_text">Submit</string>
+    <string name="activity_result_image">image</string>
+
+    <string name="results_congrats_text">Hey, \nCongratulations!</string>
+    <string name="result_score">Your score is %1$s out of 12</string>
+    <string name="results_0_text">Oh No!\nWe have a lot of work to do</string>
+    <string name="results_1_4_text">"You can do better!\n Lets keep working"</string>
+    <string name="results_5_7_text">You are making a start\nLets keep improving</string>
+    <string name="results_8_9_text">"Good work!,\nKeep improving and learning"</string>
+    <string name="results_10_11_text">Excellent!\nYou did very well!!!</string>
+    <string name="results_12_text">PERFECT!!!</string>
+
+    <string name="adapter_score">%1$s/12</string>
+    <string name="test_history_result_btn">Test History</string>
+    <string name="go_home_btn">Home</string>
+    <string name="item_history_score_text">Score:</string>
+    <string name="result_activity_result_text">Result</string>
+
+    <string name="landing_page_txt">Hi\n%1$s\npick\nMultiplication\nor\nDivision</string>
+    <string name="pick_a_number">Pick a Number</string>
+    <string name="image">Image</string>
+
+    <string name="multiplication">Multiplication</string>
+    <string name="division">Division</string>
+
+    <string name="btn_next_question_txt">Next Question</string>
+    <string name="btn_finish_txt">Finish</string>
+    <string name="play_again_btn">Play Again?</string>
+    <string name="quiz_question_dialog_yes">Yes</string>
+    <string name="quiz_question_dialog_no">No</string>
+    <string name="quiz_question_tv">Are you sure?</string>
+    <string name="quiz_dialog_body_txt">If you leave the quiz before you finish, you will lose all of your progress</string>
+    <string name="operator_filter">Operation Filter</string>
+    <string name="all_operators_filter_txt">All\n Operators</string>
+    <string name="all_numbers_filter_txt">All\n Numbers</string>
+    <string name="number_filter">Number Filter</string>
+    <string name="clear_filter">Clear Filter</string>
+</resources>
