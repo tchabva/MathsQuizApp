@@ -53,7 +53,7 @@ fun HistoryScreen(navController: NavController){
     Scaffold(
         topBar = {
             TopAppBar(
-                colors = TopAppBarDefaults.topAppBarColors(colorResource(id = R.color.orange)),
+                colors = TopAppBarDefaults.smallTopAppBarColors(colorResource(id = R.color.orange)),
                 title = {
                     Text(
                         text = stringResource(id = R.string.test_history_label),
