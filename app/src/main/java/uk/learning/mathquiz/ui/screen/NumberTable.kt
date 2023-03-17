@@ -14,7 +14,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -29,9 +28,8 @@ import uk.learning.mathquiz.models.NumberModel
 import uk.learning.mathquiz.ui.numberTableScreen.NumberTableState
 import uk.learning.mathquiz.ui.numberTableScreen.NumberTableViewModel
 import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
-import uk.learning.mathquiz.ui.theme.BlueDivision
-import uk.learning.mathquiz.ui.theme.Purple
-import uk.learning.mathquiz.ui.theme.RedMultiply
+import uk.learning.mathquiz.ui.theme.Blue
+import uk.learning.mathquiz.ui.theme.Red
 import kotlin.properties.Delegates
 
 @Composable
@@ -53,12 +51,12 @@ fun NumberTableScreen(
 
  when (currentState.value) {
         is NumberTableState.DivisionState -> {
-           textColor = RedMultiply
+           textColor = Red
            operatorImage =  R.drawable.ic_division_logo
 
         }
         is NumberTableState.MultiplicationState -> {
-            textColor = BlueDivision
+            textColor = Blue
            operatorImage = R.drawable.ic_multiplication_logo
         }
     }

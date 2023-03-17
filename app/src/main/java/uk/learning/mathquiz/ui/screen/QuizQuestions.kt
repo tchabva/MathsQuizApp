@@ -45,6 +45,9 @@ import uk.learning.mathquiz.data.TestResult
 import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
 import uk.learning.mathquiz.ui.quizQuestionScreen.QuizQuestionState
 import uk.learning.mathquiz.ui.quizQuestionScreen.QuizQuestionViewModel
+import uk.learning.mathquiz.ui.theme.Blue
+import uk.learning.mathquiz.ui.theme.GreenMain
+import uk.learning.mathquiz.ui.theme.Red
 
 
 @RequiresApi(Build.VERSION_CODES.N)
@@ -89,6 +92,13 @@ fun QuizQuestionsScreen(
     //Collecting the state from the viewModel, using a more convenient variable
     val currentState = quizQuestionViewModel.state.collectAsState()
 
+    //This will determine the colour of the Quiz depending on the operation
+    if(operator == stringResource(id = R.string.division)){
+        textColor = Red
+    }else if (operator == stringResource(id = R.string.multiplication)){
+        textColor = Blue
+    }
+
     /*This will determine what the user will see dependent on the state of the quiz from the
     viewModel
      */
@@ -122,12 +132,11 @@ fun QuizQuestionsScreen(
         }
     }
 
-    when (operator = )
 
     //The UI of QuizQuestions Screen
     Column(
         modifier = Modifier
-            .background(colorResource(R.color.green))
+            .background(Color.White)
             .fillMaxSize()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -137,7 +146,7 @@ fun QuizQuestionsScreen(
             modifier = Modifier.padding(top = 64.dp),
             text = questionText,
             fontFamily = FontFamily.Serif,
-            color = colorResource(R.color.yellow),
+            color = textColor,
             fontSize = 56.sp,
             fontWeight = FontWeight.SemiBold
         )
@@ -152,14 +161,14 @@ fun QuizQuestionsScreen(
             LinearProgressIndicator(
                 progress = animatedProgress,
                 modifier = Modifier.weight(.9f),
-                color = colorResource(R.color.orange)
+                color = textColor
             )
             //Progressbar text
             Text(
                 modifier = Modifier.weight(0.15f),
                 text = progressbarText,
                 fontFamily = FontFamily.Serif,
-                color = Color.White,
+                color = textColor,
                 fontSize = 24.sp,
                 fontWeight = FontWeight.SemiBold,
                 textAlign = TextAlign.End
@@ -186,7 +195,7 @@ fun QuizQuestionsScreen(
                 .fillMaxWidth()
                 .padding(vertical = 8.dp)
                 .background(answerBoxBackground)
-                .border(BorderStroke(8.dp, color = colorResource(R.color.orange)))
+                .border(BorderStroke(8.dp, color = textColor))
                 .focusable(answerBoxFocusable)
                 .focusRequester(focusRequester),
             textStyle = TextStyle(
@@ -220,7 +229,7 @@ fun QuizQuestionsScreen(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 16.dp),
-            colors = ButtonDefaults.buttonColors(colorResource(R.color.yellow)),
+            colors = ButtonDefaults.buttonColors(textColor),
             elevation = ButtonDefaults.buttonElevation(16.dp),
             onClick = {
                 /*Calls the buttonPressed function from the viewModel and changes the state of the
@@ -291,7 +300,7 @@ fun QuizQuestionsScreen(
 @Composable
 private fun getBoxColor(isCorrect: Boolean): Color {
     return if (isCorrect) {
-        colorResource(R.color.green)
+        GreenMain
     } else {
         Color.Red
     }

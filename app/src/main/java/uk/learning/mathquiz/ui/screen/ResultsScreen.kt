@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.theme.GreenMain
+import uk.learning.mathquiz.ui.theme.Purple
 import kotlin.properties.Delegates
 
 @Composable
@@ -35,6 +37,8 @@ fun ResultsScreen(
     var operatorImage by Delegates.notNull<Int>()
     var resultText by remember { mutableStateOf("Hey, Congratulations") }
 
+
+    //TODO Make the username color dependant on the operation that was done on the last quiz
 
     //Sets the text and images displayed on the Results Screen UI dependent on the user's score
     when (correctAnswers.toInt()) {
@@ -72,7 +76,7 @@ fun ResultsScreen(
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(R.color.green))
+            .background(Color.White)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -91,16 +95,16 @@ fun ResultsScreen(
         ) {
 
             //Results Text
-            ResultsScreenText(text = resultText, size = 40, color = R.color.yellow)
+            ResultsScreenText(text = resultText, size = 40, color = GreenMain)
 
             //UserName
-            ResultsScreenText(text = userName, size = 48, color = R.color.orange)
+            ResultsScreenText(text = userName, size = 48, color = Color.Black)
 
             //Test Result Score Text
             ResultsScreenText(
                 text = stringResource(id = R.string.result_score, correctAnswers),
                 size = 32,
-                color = R.color.white
+                color = Purple
             )
         }
 
@@ -142,11 +146,11 @@ fun ResultsScreen(
 }
 
 @Composable
-fun ResultsScreenText(text: String, size: Int, color: Int) {
+fun ResultsScreenText(text: String, size: Int, color: Color) {
     Text(
         text = text,
         fontFamily = FontFamily.Serif,
-        color = colorResource(color),
+        color = color,
         fontSize = size.sp,
         fontWeight = FontWeight.Bold,
         textAlign = TextAlign.Center,
@@ -161,7 +165,7 @@ fun ResultsScreenButton(textResource: Int, verticalPadding: Int, onClick: () -> 
         modifier = Modifier
             .fillMaxWidth()
             .padding(vertical = verticalPadding.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.yellow)),
+        colors = ButtonDefaults.buttonColors(GreenMain),
         elevation = ButtonDefaults.buttonElevation(16.dp),
         onClick = {
             onClick()

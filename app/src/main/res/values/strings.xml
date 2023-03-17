@@ -60,7 +60,7 @@
     <string name="quiz_question_dialog_yes">YES</string>
     <string name="quiz_question_dialog_no">NO</string>
     <string name="dialog_text_heading">Are you sure?</string>
-    <string name="quiz_dialog_body_txt">If you leave the quiz before you finish, you will lose all of your progress</string>
+    <string name="quiz_dialog_body_txt">If you leave the quiz, you will lose all of your progress</string>
     <string name="operator_filter">Operation Filter</string>
     <string name="all_operators_filter_txt">All\n Operators</string>
     <string name="all_numbers_filter_txt">All\n Numbers</string>

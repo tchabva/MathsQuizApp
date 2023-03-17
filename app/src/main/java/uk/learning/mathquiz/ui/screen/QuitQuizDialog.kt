@@ -24,6 +24,8 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.theme.GreenMain
+import uk.learning.mathquiz.ui.theme.Purple
 
 @Composable
 fun QuitQuizDialog(
@@ -53,14 +55,14 @@ fun QuitQuizDialogUI(
     Card {
         Column(
             modifier
-                .background(colorResource(R.color.orange))
+                .background(Purple)
                 .padding(16.dp)
         ) {
             //Dialog Header Text
             Text(
                 text = stringResource(R.string.dialog_text_heading),
                 fontFamily = FontFamily.Serif,
-                color = Color.Red,
+                color = Color.White,
                 fontSize = 32.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -105,7 +107,7 @@ fun QuizDialogButton(textResource: Int, onClick: () -> Unit ={}) {
     //The Button composable
     Button(
         modifier = Modifier.size(width = 120.dp, height = 50.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.yellow)),
+        colors = ButtonDefaults.buttonColors(GreenMain),
         elevation = ButtonDefaults.buttonElevation(16.dp),
         onClick = { onClick() }
     ) {

@@ -36,6 +36,7 @@ import uk.learning.mathquiz.R
 import uk.learning.mathquiz.data.MathsQuizDBViewModel
 import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.data.TestResult
+import uk.learning.mathquiz.ui.theme.Purple
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,20 +54,22 @@ fun HistoryScreen(navController: NavController){
     Scaffold(
         topBar = {
             TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(colorResource(id = R.color.orange)),
+                colors = TopAppBarDefaults.smallTopAppBarColors(Purple),
                 title = {
                     Text(
                         text = stringResource(id = R.string.test_history_label),
                         fontFamily = FontFamily.Serif,
-                        color = Color.Black,
+                        color = Color.White,
                         fontSize = 32.sp,
                         fontWeight = FontWeight.SemiBold
                     )
                 },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
-                        Icon(Icons.Default.ArrowBack, 
-                            contentDescription = stringResource(id = R.string.history_appbar_back)
+                        Icon(
+                            Icons.Default.ArrowBack,
+                            contentDescription = stringResource(id = R.string.history_appbar_back),
+                            tint = Color.White
                         )
                     }
                 },

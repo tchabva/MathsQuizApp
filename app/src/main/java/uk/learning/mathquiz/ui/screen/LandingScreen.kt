@@ -12,7 +12,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
@@ -23,10 +22,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
-import uk.learning.mathquiz.ui.theme.BlueDivision
+import uk.learning.mathquiz.ui.theme.Blue
 import uk.learning.mathquiz.ui.theme.GreenMain
 import uk.learning.mathquiz.ui.theme.Purple
-import uk.learning.mathquiz.ui.theme.RedMultiply
+import uk.learning.mathquiz.ui.theme.Red
 
 @Composable
 fun LandingScreen(navController: NavController, userName: String){
@@ -41,10 +40,10 @@ fun LandingScreen(navController: NavController, userName: String){
     ) {
         
         //Hi Text
-        LandingPageText(stringResource(R.string.landing_page_txt), BlueDivision)
+        LandingPageText(stringResource(R.string.landing_page_txt), Blue)
         
         //userName String text
-        LandingPageText(userName, RedMultiply)
+        LandingPageText(userName, Red)
 
         //userName String text
         LandingPageText(stringResource(R.string.pick), Purple)
