@@ -10,6 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -22,6 +23,10 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.theme.BlueDivision
+import uk.learning.mathquiz.ui.theme.GreenMain
+import uk.learning.mathquiz.ui.theme.Purple
+import uk.learning.mathquiz.ui.theme.RedMultiply
 
 @Composable
 fun LandingScreen(navController: NavController, userName: String){
@@ -30,19 +35,19 @@ fun LandingScreen(navController: NavController, userName: String){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(R.color.green))
+            .background(Color.White)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         
         //Hi Text
-        LandingPageText(stringResource(R.string.landing_page_txt), R.color.yellow)
+        LandingPageText(stringResource(R.string.landing_page_txt), BlueDivision)
         
         //userName String text
-        LandingPageText(userName, R.color.orange)
+        LandingPageText(userName, RedMultiply)
 
         //userName String text
-        LandingPageText(stringResource(R.string.pick), R.color.red)
+        LandingPageText(stringResource(R.string.pick), Purple)
 
         //Column for the operator buttons
         Column(
@@ -58,7 +63,7 @@ fun LandingScreen(navController: NavController, userName: String){
             )
 
             //or Text
-            LandingPageText(stringResource(R.string.or), R.color.white)
+            LandingPageText(stringResource(R.string.or), Color.Black)
 
             OperatorButton(
                 navController = navController,
@@ -72,12 +77,12 @@ fun LandingScreen(navController: NavController, userName: String){
 
 
 @Composable
-fun LandingPageText(textValue: String, color: Int){
+fun LandingPageText(textValue: String, color: Color){
     //userName String text
     Text(
         text = textValue,
         fontSize = 62.sp,
-        color = colorResource(color),
+        color = color,
         fontWeight = FontWeight.ExtraBold,
         fontFamily = FontFamily.Serif
     )
@@ -95,7 +100,7 @@ fun OperatorButton(
     Button(
         modifier = Modifier
             .size(200.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.yellow)),
+        colors = ButtonDefaults.buttonColors(GreenMain),
         shape = RoundedCornerShape(8.dp),
         elevation = ButtonDefaults.buttonElevation(16.dp),
         onClick = {

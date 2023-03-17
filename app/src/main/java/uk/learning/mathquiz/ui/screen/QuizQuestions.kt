@@ -66,6 +66,7 @@ fun QuizQuestionsScreen(
     var answerBoxBackground by remember { mutableStateOf(Color.White) }
     var enabledState by remember { mutableStateOf(true) }
     var progressbarText by remember { mutableStateOf("") }
+    var textColor by remember{ mutableStateOf(Color.Black) }
     //Focus Requester
     val focusRequester = remember { FocusRequester() }
 
@@ -120,6 +121,8 @@ fun QuizQuestionsScreen(
             }
         }
     }
+
+    when (operator = )
 
     //The UI of QuizQuestions Screen
     Column(

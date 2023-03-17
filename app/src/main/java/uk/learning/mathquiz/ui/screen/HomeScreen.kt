@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.theme.GreenMain
+import uk.learning.mathquiz.ui.theme.Purple
 
 /*
 The home page, where users can enter their name
@@ -43,7 +45,7 @@ fun HomeScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.green))
+            .background(Color.White)
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
 
@@ -55,7 +57,7 @@ fun HomeScreen(navController: NavController) {
         HomeScreenText(
             textResource = R.string.app_name_internal,
             size = 62,
-            colour = colorResource(R.color.yellow),
+            colour = Purple,
             weight = FontWeight.ExtraBold
         )
 
@@ -103,7 +105,7 @@ fun EnterNameCard(navController: NavController) {
 
         Box(
             modifier = Modifier
-                .background(colorResource(id = R.color.orange))
+                .background(Purple)
                 .align(Alignment.CenterHorizontally)
                 .fillMaxWidth(),
         ) {
@@ -120,7 +122,7 @@ fun EnterNameCard(navController: NavController) {
                 HomeScreenText(
                     textResource = R.string.card_welcome_txt,
                     size = 32,
-                    colour = Color.Black,
+                    colour = Color.White,
                     weight = FontWeight.SemiBold
                 )
 
@@ -128,7 +130,7 @@ fun EnterNameCard(navController: NavController) {
                 HomeScreenText(
                     textResource = R.string.card_instruction,
                     size = 16,
-                    colour = Color.Black,
+                    colour = Color.White,
                     weight = FontWeight.SemiBold
                 )
 
@@ -148,20 +150,20 @@ fun EnterNameCard(navController: NavController) {
                         HomeScreenText(
                             textResource = R.string.text_field_label,
                             size = 16,
-                            colour = Color.Black,
+                            colour = Color.White,
                             weight = FontWeight.Medium
                         )
                     },
                     colors = TextFieldDefaults.outlinedTextFieldColors(
-                        textColor = Color.Black,
-                        focusedBorderColor = colorResource(R.color.yellow),
-                        focusedLabelColor = colorResource(R.color.yellow),
-                        containerColor = colorResource(R.color.orange),
-                        cursorColor = colorResource(R.color.yellow),
+                        textColor = Color.White,
+                        focusedBorderColor = Color.White,
+                        focusedLabelColor = Color.White,
+                        containerColor = Purple,
+                        cursorColor = GreenMain,
                         unfocusedLabelColor = Color.Black,
                         unfocusedBorderColor = Color.Black,
                         selectionColors = TextSelectionColors(
-                            handleColor = colorResource(R.color.yellow),
+                            handleColor = GreenMain,
                             backgroundColor = colorResource(R.color.yellow)
                         )
                     ),
@@ -213,7 +215,7 @@ fun HomeScreenButton(textResource: Int, padding: Int, onClick: () -> Unit = {}) 
         modifier = Modifier
             .fillMaxWidth()
             .padding(padding.dp),
-        colors = ButtonDefaults.buttonColors(colorResource(R.color.yellow)),
+        colors = ButtonDefaults.buttonColors(GreenMain),
         elevation = ButtonDefaults.buttonElevation(16.dp),
         onClick = {
             onClick()

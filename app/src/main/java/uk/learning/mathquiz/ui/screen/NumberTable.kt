@@ -9,8 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,6 +29,9 @@ import uk.learning.mathquiz.models.NumberModel
 import uk.learning.mathquiz.ui.numberTableScreen.NumberTableState
 import uk.learning.mathquiz.ui.numberTableScreen.NumberTableViewModel
 import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
+import uk.learning.mathquiz.ui.theme.BlueDivision
+import uk.learning.mathquiz.ui.theme.Purple
+import uk.learning.mathquiz.ui.theme.RedMultiply
 import kotlin.properties.Delegates
 
 @Composable
@@ -42,23 +44,29 @@ fun NumberTableScreen(
 
     var operatorImage by Delegates.notNull<Int>()
 
+    var textColor by remember{ mutableStateOf(Color.White) }
+
+
     val currentState = numberTableViewModel.state.collectAsState()
 
     val numberList = numberTableViewModel.numberList
 
-    operatorImage = when (currentState.value) {
+ when (currentState.value) {
         is NumberTableState.DivisionState -> {
-            R.drawable.ic_division_logo
+           textColor = RedMultiply
+           operatorImage =  R.drawable.ic_division_logo
+
         }
         is NumberTableState.MultiplicationState -> {
-            R.drawable.ic_multiplication_logo
+            textColor = BlueDivision
+           operatorImage = R.drawable.ic_multiplication_logo
         }
     }
 
     //The base column
     Column(
         modifier = Modifier
-            .background(colorResource(R.color.green))
+            .background(Color.White)
             .padding(16.dp)
     ) {
 
@@ -81,7 +89,7 @@ fun NumberTableScreen(
                 modifier = Modifier.padding(horizontal = 8.dp),
                 text = stringResource(R.string.pick_a_number),
                 fontSize = 32.sp,
-                color = colorResource(R.color.orange),
+                color = textColor,
                 fontWeight = FontWeight.ExtraBold,
                 fontFamily = FontFamily.Serif
             )
