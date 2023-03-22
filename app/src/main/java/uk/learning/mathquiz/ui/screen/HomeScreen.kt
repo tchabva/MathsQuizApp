@@ -2,6 +2,7 @@ package uk.learning.mathquiz.ui.screen
 
 import android.content.Context
 import android.widget.Toast
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -100,14 +101,15 @@ fun EnterNameCard(navController: NavController) {
         modifier = Modifier
             .fillMaxWidth(),
         shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(16.dp)
+        elevation = CardDefaults.cardElevation(16.dp),
+        border = BorderStroke(4.dp, Purple)
     ) {
 
         Box(
             modifier = Modifier
-                .background(Purple)
+                .background(Color.White)
                 .align(Alignment.CenterHorizontally)
-                .fillMaxWidth(),
+                .fillMaxWidth()
         ) {
 
             Column(
@@ -122,7 +124,7 @@ fun EnterNameCard(navController: NavController) {
                 HomeScreenText(
                     textResource = R.string.card_welcome_txt,
                     size = 32,
-                    colour = Color.White,
+                    colour = Purple,
                     weight = FontWeight.SemiBold
                 )
 
@@ -130,7 +132,7 @@ fun EnterNameCard(navController: NavController) {
                 HomeScreenText(
                     textResource = R.string.card_instruction,
                     size = 16,
-                    colour = Color.White,
+                    colour = Purple,
                     weight = FontWeight.SemiBold
                 )
 
@@ -150,21 +152,21 @@ fun EnterNameCard(navController: NavController) {
                         HomeScreenText(
                             textResource = R.string.text_field_label,
                             size = 16,
-                            colour = Color.White,
+                            colour = Purple,
                             weight = FontWeight.Medium
                         )
                     },
                     colors = TextFieldDefaults.outlinedTextFieldColors(
-                        textColor = Color.White,
-                        focusedBorderColor = Color.White,
-                        focusedLabelColor = Color.White,
-                        containerColor = Purple,
+                        textColor = Purple,
+                        focusedBorderColor = Purple,
+                        focusedLabelColor = Purple,
+                        containerColor = Color.White,
                         cursorColor = GreenMain,
-                        unfocusedLabelColor = Color.Black,
-                        unfocusedBorderColor = Color.Black,
+                        unfocusedLabelColor = Purple,
+                        unfocusedBorderColor = Purple,
                         selectionColors = TextSelectionColors(
                             handleColor = GreenMain,
-                            backgroundColor = colorResource(R.color.yellow)
+                            backgroundColor = GreenMain
                         )
                     ),
                     keyboardOptions = KeyboardOptions(
@@ -223,7 +225,7 @@ fun HomeScreenButton(textResource: Int, padding: Int, onClick: () -> Unit = {}) 
     ) {
         Text(
             stringResource(textResource),
-            fontSize = 32.sp,
+            fontSize = 28.sp,
             fontFamily = FontFamily.Serif,
             color = Color.Black,
             fontWeight = FontWeight.SemiBold
@@ -239,7 +241,8 @@ fun HomeScreenText(textResource: Int, size: Int, colour: Color, weight: FontWeig
         color = colour,
         fontSize = size.sp,
         fontWeight = weight,
-        textAlign = TextAlign.Center
+        textAlign = TextAlign.Center,
+        lineHeight = 1.sp
     )
 }
 
