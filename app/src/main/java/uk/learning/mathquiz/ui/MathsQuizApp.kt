@@ -1,6 +1,8 @@
 package uk.learning.mathquiz.ui
 
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -12,10 +14,12 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.homePageScreen.HomeViewModel
 import uk.learning.mathquiz.ui.numberTableScreen.NumberTableViewModel
 import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
 import uk.learning.mathquiz.ui.screen.*
 
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun MathsQuizApp(){
     //Initiate the mutable state boolean for the QuitQuizDialog
@@ -23,6 +27,7 @@ fun MathsQuizApp(){
     Navigation(openDialog)
 }
 
+@RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun Navigation(
     openDialog: MutableState<Boolean>
@@ -42,8 +47,8 @@ fun Navigation(
         }
         //Home Screen Composable
         composable("Home"){
+            val viewModel: HomeViewModel
             HomeScreen(navController)
-
         }
         //Landing Page Composable
         composable(
@@ -77,8 +82,6 @@ fun Navigation(
 
             val viewModel = NumberTableViewModel(operator)
             NumberTableScreen(navController, userName, operatorArg, viewModel)
-
-
         }
         //Quiz Questions Screen Composable
         composable(
