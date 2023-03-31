@@ -5,9 +5,10 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -29,6 +30,8 @@ import uk.learning.mathquiz.ui.theme.Red
 
 @Composable
 fun LandingScreen(navController: NavController, userName: String){
+
+    val buttonColor by remember { mutableStateOf(GreenMain) }
 
     //Main Column
     Column(
@@ -58,7 +61,9 @@ fun LandingScreen(navController: NavController, userName: String){
                 navController = navController,
                 image = R.drawable.ic_multiplication_logo,
                 operator = stringResource(R.string.multiplication),
-                userName = userName
+                userName = userName,
+                buttonColors = buttonColor,
+                buttonSize = 200
             )
 
             //or Text
@@ -68,7 +73,9 @@ fun LandingScreen(navController: NavController, userName: String){
                 navController = navController,
                 image = R.drawable.ic_division_logo,
                 operator = stringResource(R.string.division),
-                userName = userName
+                userName = userName,
+                buttonColors = buttonColor,
+                buttonSize = 200
             )
         }
     }
@@ -93,13 +100,16 @@ fun OperatorButton(
     navController: NavController,
     image: Int,
     operator: String,
-    userName: String
+    userName: String,
+    buttonColors: Color,
+    buttonSize: Int
+
 ){
     //Operator Button
     Button(
         modifier = Modifier
-            .size(200.dp),
-        colors = ButtonDefaults.buttonColors(GreenMain),
+            .size(buttonSize.dp),
+        colors = ButtonDefaults.buttonColors(buttonColors),
         shape = RoundedCornerShape(8.dp),
         elevation = ButtonDefaults.buttonElevation(16.dp),
         onClick = {

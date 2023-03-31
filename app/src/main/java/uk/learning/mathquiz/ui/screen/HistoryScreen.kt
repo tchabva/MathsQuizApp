@@ -36,6 +36,7 @@ import uk.learning.mathquiz.R
 import uk.learning.mathquiz.data.MathsQuizDBViewModel
 import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.data.TestResult
+import uk.learning.mathquiz.ui.resultsHistoryScreen.OperatorDialog
 import uk.learning.mathquiz.ui.theme.Purple
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -117,17 +118,11 @@ fun HistoryScreen(navController: NavController){
 
     //The Stand-in operator dialog
     if(showOperatorDialog){
-        AlertDialog(
+        OperatorDialog(
             onDismissRequest = { showOperatorDialog = false },
-            title = {Text("Operator Dialog")},
-            text = { Text(text = "This is the Temp Operator Dialog")},
-            confirmButton = {
-                Button(
-                    onClick = { showOperatorDialog = false },
-                ) {
-                    Text(text = "Ok")
-                }
-            }
+            onAllOperatorsClick = { showOperatorDialog = false },
+            onMultiplicationClick = { showOperatorDialog = false },
+            onDivisionClick = {showOperatorDialog = false}
         )
     }
 

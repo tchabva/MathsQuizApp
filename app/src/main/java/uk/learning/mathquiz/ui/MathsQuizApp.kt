@@ -3,10 +3,7 @@ package uk.learning.mathquiz.ui
 
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.*
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -22,15 +19,18 @@ import uk.learning.mathquiz.ui.screen.*
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun MathsQuizApp(){
-    //Initiate the mutable state boolean for the QuitQuizDialog
+    //Initiate the mutable state booleans for the tje
     val openDialog = remember{ mutableStateOf(false) }
+
+
     Navigation(openDialog)
 }
 
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun Navigation(
-    openDialog: MutableState<Boolean>
+    openDialog: MutableState<Boolean>,
+
 ){
     //The navController
     val navController = rememberNavController()
