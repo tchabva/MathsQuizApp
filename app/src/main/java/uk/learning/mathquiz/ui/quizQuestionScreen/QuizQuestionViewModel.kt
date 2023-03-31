@@ -1,23 +1,17 @@
 package uk.learning.mathquiz.ui.quizQuestionScreen
 //STATE BASED UI
-import android.app.Application
 import android.icu.text.SimpleDateFormat
 import android.icu.util.Calendar
-import android.icu.util.ULocale
 import android.os.Build
 import androidx.annotation.RequiresApi
-import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.compose.viewModel
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import uk.learning.mathquiz.data.MathsQuizDBViewModel
-import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.models.NewQuestion
 import java.util.*
 
