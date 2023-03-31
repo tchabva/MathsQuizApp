@@ -11,13 +11,13 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.text.selection.TextSelectionColors
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
+import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalFocusManager
-import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
@@ -29,12 +29,14 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.homePageScreen.HomeScreenState
+import uk.learning.mathquiz.ui.homePageScreen.HomeViewModel
 import uk.learning.mathquiz.ui.theme.GreenMain
 import uk.learning.mathquiz.ui.theme.Purple
-
 /*
 The home page, where users can enter their name
  */
@@ -42,42 +44,105 @@ The home page, where users can enter their name
 @Composable
 fun HomeScreen(navController: NavController) {
 
-    //Background column for the entire HomeScreen
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.White)
-            .padding(16.dp),
-        horizontalAlignment = Alignment.CenterHorizontally,
+    val homeViewModel: HomeViewModel = viewModel()
+    val state by homeViewModel.state.collectAsState()
+    var userName by remember { mutableStateOf("") }
 
-        ) {
+    when(state){
+        is HomeScreenState.DbNotEmpty -> {
+            userName = homeViewModel.latestTestResult.observeAsState().value?.name.toString()
 
-        Spacer(modifier = Modifier.height(36.dp))
+            //Background column for the entire HomeScreen when the Database is not Empty
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.White)
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
 
-        //Maths Quiz Text
-        HomeScreenText(
-            textResource = R.string.app_name_internal,
-            size = 62,
-            colour = Purple,
-            weight = FontWeight.ExtraBold
-        )
+                ) {
 
-        Spacer(modifier = Modifier.height(44.dp))
+                Spacer(modifier = Modifier.height(36.dp))
 
-        //Card details function
-        EnterNameCard(navController)
+                //Maths Quiz Text
+                HomeScreenText(
+                    textResource = R.string.app_name_internal,
+                    size = 62,
+                    colour = Purple,
+                    weight = FontWeight.ExtraBold
+                )
 
-        //Column containing Test History Button
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center
-        ) {
-            //Test History Button
-            HomeScreenButton(
-                textResource = R.string.test_history_btn_text,
-                padding = 8
-            ) {
-                navController.navigate("History")
+                Spacer(modifier = Modifier.height(44.dp))
+
+                //Card details function
+                EnterNameCard(navController)
+
+                //Column containing the Continue As and Test History Buttons
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    //Continue as Button
+                    HomeScreenButton(
+                        textResource = R.string.continue_as_btn_txt,
+                        textArg = userName,
+                        padding = 8
+                    ) {
+                        navController.navigate("Landing/${userName}")
+                    }
+
+                    Spacer(modifier = Modifier.height(32.dp))
+
+                    //Test History Button
+                    HomeScreenButton(
+                        textResource = R.string.test_history_btn_text,
+                        padding = 8
+                    ) {
+                        navController.navigate("History")
+                    }
+                }
+            }
+        }
+        is HomeScreenState.EmptyDbState -> {
+
+            //Background column for the entire HomeScreen when the Database is Empty
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.White)
+                    .padding(16.dp),
+                horizontalAlignment = Alignment.CenterHorizontally,
+
+                ) {
+
+                Spacer(modifier = Modifier.height(36.dp))
+
+                //Maths Quiz Text
+                HomeScreenText(
+                    textResource = R.string.app_name_internal,
+                    size = 62,
+                    colour = Purple,
+                    weight = FontWeight.ExtraBold
+                )
+
+                Spacer(modifier = Modifier.height(44.dp))
+
+                //Card details function
+                EnterNameCard(navController)
+
+                //Column containing Test History Button
+                Column(
+                    modifier = Modifier.fillMaxSize(),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    //Test History Button
+                    HomeScreenButton(
+                        textResource = R.string.test_history_btn_text,
+                        padding = 8
+                    ) {
+                        navController.navigate("History")
+                    }
+                }
             }
         }
     }
@@ -212,7 +277,12 @@ fun clickToast(context: Context, toast: String) {
 
 //Home Buttons Function, That will navigation to the appropriate destination
 @Composable
-fun HomeScreenButton(textResource: Int, padding: Int, onClick: () -> Unit = {}) {
+fun HomeScreenButton(
+    textResource: Int,
+    textArg: String? = null,
+    padding: Int,
+    onClick: () -> Unit = {}
+) {
     Button(
         modifier = Modifier
             .fillMaxWidth()
@@ -224,6 +294,7 @@ fun HomeScreenButton(textResource: Int, padding: Int, onClick: () -> Unit = {}) 
         }
     ) {
         Text(
+            if (textArg != null) stringResource(textResource, textArg) else
             stringResource(textResource),
             fontSize = 28.sp,
             fontFamily = FontFamily.Serif,
