@@ -283,7 +283,7 @@ fun QuizQuestionsScreen(
         }
     }
 
-    //This will make the openDialog value true when the user attempts to go back
+    //This will make the openDialog value true when the user attempts to go back and close the dialog
     BackHandler(
         enabled = true,
         onBack = {
