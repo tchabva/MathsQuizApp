@@ -47,6 +47,9 @@ fun HistoryScreen(navController: NavController){
     val mMathsQuizDBViewModel: MathsQuizDBViewModel = viewModel(
         factory = MathsQuizDbViewModelFactory(context.applicationContext as Application)
     )
+    var showClearIcon by remember { mutableStateOf(false) }
+    var showOperatorDialog by remember{ mutableStateOf(false) }
+    var showNumberListDialog by remember{ mutableStateOf(false) }
 
     val resultsList = mMathsQuizDBViewModel.allTestResults.observeAsState(listOf()).value
 
@@ -75,21 +78,22 @@ fun HistoryScreen(navController: NavController){
                 },
                 //This will contain all of the icons at the end of the AppBar
                 actions = {
-//                    var menuExpanded by remember { mutableStateOf(false) }
-//                    //The filter for the operators TODO
-//                    IconButton(onClick = { menuExpanded = true }) {
-//                        Icon(operatorIcon,
-//                            contentDescription = stringResource(id = R.string.operator_filter)
-//                        )
-//                    }
-//
-//
-//                    //The filter for the numbers TODO
-//                    IconButton(onClick = { }) {
-//                        Icon(Icons.Default.List,
-//                            contentDescription = stringResource(id = R.string.number_filter)
-//                        )
-//                    }
+
+                    IconButton(onClick = { showOperatorDialog = true }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_filter_alt),
+                            contentDescription = stringResource(id = R.string.operator_filter)
+                        )
+                    }
+
+
+                    //The filter for the numbers TODO
+                    IconButton(onClick = { showNumberListDialog = true }) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.ic_logo),
+                            contentDescription = stringResource(id = R.string.number_filter)
+                        )
+                    }
                 }
             )
         }
@@ -109,6 +113,37 @@ fun HistoryScreen(navController: NavController){
                 }
             }
         }
+    }
+
+    //The Stand-in operator dialog
+    if(showOperatorDialog){
+        AlertDialog(
+            onDismissRequest = { showOperatorDialog = false },
+            title = {Text("Operator Dialog")},
+            text = { Text(text = "This is the Temp Operator Dialog")},
+            confirmButton = {
+                Button(
+                    onClick = { showOperatorDialog = false },
+                ) {
+                    Text(text = "Ok")
+                }
+            }
+        )
+    }
+
+    if(showNumberListDialog){
+        AlertDialog(
+            onDismissRequest = { showNumberListDialog = false },
+            title = {Text("Number List Dialog")},
+            text = { Text(text = "This is the Temp Number List Dialog")},
+            confirmButton = {
+                Button(
+                    onClick = { showNumberListDialog = false },
+                ) {
+                    Text(text = "Ok")
+                }
+            }
+        )
     }
 }
 
