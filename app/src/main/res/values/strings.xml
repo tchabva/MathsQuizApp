@@ -72,4 +72,6 @@
     <string name="history_operator_filter">Operator Filter</string>
     <string name="history_number_filter">Number Filter</string>
 
+    <string name="continue_as_btn_txt">Continue as %1$s</string>
+
 </resources>
