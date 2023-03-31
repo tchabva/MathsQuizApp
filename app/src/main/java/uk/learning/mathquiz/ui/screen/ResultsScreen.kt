@@ -110,7 +110,7 @@ fun ResultsScreen(
 
         //Button Arrangement column
         Column(
-            Modifier.fillMaxSize(),
+            Modifier.fillMaxWidth(),
             verticalArrangement = Arrangement.Center
         ) {
             //Play Again Button
