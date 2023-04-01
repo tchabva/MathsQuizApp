@@ -129,6 +129,7 @@ class QuizQuestionViewModel @AssistedInject constructor(
 
     var currentDate = ""
     //Gets the current date
+
     @RequiresApi(Build.VERSION_CODES.N)
     fun getDate(){
 

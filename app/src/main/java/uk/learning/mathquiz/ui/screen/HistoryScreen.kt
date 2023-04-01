@@ -88,7 +88,6 @@ fun HistoryScreen(navController: NavController){
                         )
                     }
 
-
                     //The filter for the numbers TODO
                     IconButton(onClick = { showNumberListDialog = true }) {
                         Icon(
