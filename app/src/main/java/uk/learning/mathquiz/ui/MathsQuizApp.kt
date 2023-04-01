@@ -22,7 +22,6 @@ fun MathsQuizApp(){
     //Initiate the mutable state booleans for the tje
     val openDialog = remember{ mutableStateOf(false) }
 
-
     Navigation(openDialog)
 }
 

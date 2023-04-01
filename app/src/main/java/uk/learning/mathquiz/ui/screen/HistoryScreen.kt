@@ -36,6 +36,7 @@ import uk.learning.mathquiz.R
 import uk.learning.mathquiz.data.MathsQuizDBViewModel
 import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.data.TestResult
+import uk.learning.mathquiz.ui.resultsHistoryScreen.NumbersDialog
 import uk.learning.mathquiz.ui.resultsHistoryScreen.OperatorDialog
 import uk.learning.mathquiz.ui.theme.Purple
 
@@ -127,18 +128,11 @@ fun HistoryScreen(navController: NavController){
     }
 
     if(showNumberListDialog){
-        AlertDialog(
-            onDismissRequest = { showNumberListDialog = false },
-            title = {Text("Number List Dialog")},
-            text = { Text(text = "This is the Temp Number List Dialog")},
-            confirmButton = {
-                Button(
-                    onClick = { showNumberListDialog = false },
-                ) {
-                    Text(text = "Ok")
-                }
-            }
-        )
+       NumbersDialog(
+           onDismissRequest = { showNumberListDialog = false },
+           onNumberSelected = { showNumberListDialog = false  },
+           onAllNumbersClick = { showNumberListDialog = false  }
+       )
     }
 }
 
