@@ -55,6 +55,8 @@ fun HistoryScreen(navController: NavController){
 
     val resultsList = mMathsQuizDBViewModel.allTestResults.observeAsState(listOf()).value
 
+
+    
     //Top AppBar Scaffold
     Scaffold(
         topBar = {
