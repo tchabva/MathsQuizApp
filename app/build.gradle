@@ -63,7 +63,7 @@ dependencies {
     //Lottie
     implementation 'com.airbnb.android:lottie-compose:5.2.0'
     implementation 'androidx.core:core-ktx:1.10.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
 
     //Navigation
     def nav_version = "2.5.3"
