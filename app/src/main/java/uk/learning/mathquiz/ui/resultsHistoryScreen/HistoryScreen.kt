@@ -1,6 +1,5 @@
 package uk.learning.mathquiz.ui.resultsHistoryScreen
 
-import android.app.Application
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -17,7 +16,6 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -31,8 +29,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
-import uk.learning.mathquiz.data.MathsQuizDBViewModel
-import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.data.TestResult
 import uk.learning.mathquiz.ui.theme.Purple
 
@@ -42,15 +38,16 @@ fun HistoryScreen(navController: NavController){
 
     var operatorIcon by remember { mutableStateOf(R.drawable.ic_logo) }
     var numberIcon by remember { mutableStateOf(Icons.Default.Add) }
-    val context = LocalContext.current
-    val mMathsQuizDBViewModel: MathsQuizDBViewModel = viewModel(
-        factory = MathsQuizDbViewModelFactory(context.applicationContext as Application)
-    )
+//    val context = LocalContext.current
+//    val mMathsQuizDBViewModel: MathsQuizDBViewModel = viewModel(
+//        factory = MathsQuizDbViewModelFactory(context.applicationContext as Application)
+//    )
+    val historyViewModel: HistoryViewModel = viewModel()
     var showClearIcon by remember { mutableStateOf(false) }
     var showOperatorDialog by remember{ mutableStateOf(false) }
     var showNumberListDialog by remember{ mutableStateOf(false) }
 
-    val resultsList = mMathsQuizDBViewModel.allTestResults.observeAsState(listOf()).value
+    val resultsList = historyViewModel.allTestResults.observeAsState(listOf()).value
 
     //Testing 2
     
