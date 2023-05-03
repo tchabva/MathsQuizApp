@@ -9,8 +9,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
@@ -40,7 +40,8 @@ import uk.learning.mathquiz.ui.theme.Purple
 @Composable
 fun HistoryScreen(navController: NavController){
 
-    var operatorIcon by remember { mutableStateOf(Icons.Default.MoreVert) }
+    var operatorIcon by remember { mutableStateOf(R.drawable.ic_logo) }
+    var numberIcon by remember { mutableStateOf(Icons.Default.Add) }
     val context = LocalContext.current
     val mMathsQuizDBViewModel: MathsQuizDBViewModel = viewModel(
         factory = MathsQuizDbViewModelFactory(context.applicationContext as Application)
@@ -51,7 +52,7 @@ fun HistoryScreen(navController: NavController){
 
     val resultsList = mMathsQuizDBViewModel.allTestResults.observeAsState(listOf()).value
 
-    //TEsting 2
+    //Testing 2
     
     //Top AppBar Scaffold
     Scaffold(
@@ -81,7 +82,7 @@ fun HistoryScreen(navController: NavController){
 
                     IconButton(onClick = { showOperatorDialog = true }) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_filter_alt),
+                            painter = painterResource(id = operatorIcon),
                             contentDescription = stringResource(id = R.string.operator_filter)
                         )
                     }
@@ -89,7 +90,7 @@ fun HistoryScreen(navController: NavController){
                     //The filter for the numbers TODO
                     IconButton(onClick = { showNumberListDialog = true }) {
                         Icon(
-                            painter = painterResource(id = R.drawable.ic_logo),
+                            numberIcon,
                             contentDescription = stringResource(id = R.string.number_filter)
                         )
                     }
@@ -117,6 +118,7 @@ fun HistoryScreen(navController: NavController){
     //The Stand-in operator dialog
     if(showOperatorDialog){
         OperatorDialog(
+            //Operator dialog buttons
             onDismissRequest = { showOperatorDialog = false },
             onAllOperatorsClick = { showOperatorDialog = false },
             onMultiplicationClick = { showOperatorDialog = false },
@@ -126,6 +128,7 @@ fun HistoryScreen(navController: NavController){
 
     if(showNumberListDialog){
        NumbersDialog(
+           //Number dialog buttons
            onDismissRequest = { showNumberListDialog = false },
            onNumberSelected = { showNumberListDialog = false  },
            onAllNumbersClick = { showNumberListDialog = false  }
@@ -168,7 +171,6 @@ fun TestHistoryItem(result: TestResult) {
                         else -> stringResource(id = androidx.compose.ui.R.string.default_error_message)
                     }
                 )
-
                 //Number Image
                 Image(
                     modifier = Modifier.size(20.dp),
