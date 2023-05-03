@@ -44,7 +44,7 @@ fun HomeScreen(navController: NavController) {
 
     val homeViewModel: HomeViewModel = viewModel()
     val state by homeViewModel.state.collectAsState()
-    var userName by remember { mutableStateOf("") }
+    var userName by remember{ mutableStateOf("") }
 
     when(state){
         is HomeScreenState.EmptyDb -> {
