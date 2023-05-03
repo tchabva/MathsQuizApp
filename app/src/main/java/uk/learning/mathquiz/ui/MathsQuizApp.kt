@@ -11,9 +11,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import uk.learning.mathquiz.R
+import uk.learning.mathquiz.ui.homePageScreen.HomeScreen
 import uk.learning.mathquiz.ui.homePageScreen.HomeViewModel
+import uk.learning.mathquiz.ui.numberTableScreen.NumberTableScreen
 import uk.learning.mathquiz.ui.numberTableScreen.NumberTableViewModel
 import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
+import uk.learning.mathquiz.ui.quizQuestionScreen.QuizQuestionsScreen
+import uk.learning.mathquiz.ui.resultsHistoryScreen.HistoryScreen
 import uk.learning.mathquiz.ui.screen.*
 
 @RequiresApi(Build.VERSION_CODES.N)

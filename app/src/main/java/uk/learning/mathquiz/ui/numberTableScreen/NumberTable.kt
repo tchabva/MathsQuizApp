@@ -1,4 +1,4 @@
-package uk.learning.mathquiz.ui.screen
+package uk.learning.mathquiz.ui.numberTableScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -25,8 +25,6 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
 import uk.learning.mathquiz.models.NumberModel
-import uk.learning.mathquiz.ui.numberTableScreen.NumberTableState
-import uk.learning.mathquiz.ui.numberTableScreen.NumberTableViewModel
 import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
 import uk.learning.mathquiz.ui.theme.Blue
 import uk.learning.mathquiz.ui.theme.Red

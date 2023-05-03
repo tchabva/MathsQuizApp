@@ -1,4 +1,4 @@
-package uk.learning.mathquiz.ui.screen
+package uk.learning.mathquiz.ui.homePageScreen
 
 import android.content.Context
 import android.widget.Toast
@@ -33,8 +33,6 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
-import uk.learning.mathquiz.ui.homePageScreen.HomeScreenState
-import uk.learning.mathquiz.ui.homePageScreen.HomeViewModel
 import uk.learning.mathquiz.ui.theme.GreenMain
 import uk.learning.mathquiz.ui.theme.Purple
 /*

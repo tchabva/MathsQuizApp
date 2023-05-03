@@ -38,8 +38,7 @@ fun NumbersDialog(
     Dialog(onDismissRequest = {  onDismissRequest() }) {
         Surface(
             shape = RoundedCornerShape(4.dp),
-            modifier = Modifier.background(Color.Transparent),
-
+            modifier = Modifier.background(Color.Transparent)
         ) {
             Column(
                 verticalArrangement = Arrangement.Center,

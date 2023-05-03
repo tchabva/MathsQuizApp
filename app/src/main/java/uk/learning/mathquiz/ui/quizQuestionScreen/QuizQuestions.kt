@@ -1,6 +1,6 @@
 @file:OptIn(ExperimentalMaterial3Api::class)
 
-package uk.learning.mathquiz.ui.screen
+package uk.learning.mathquiz.ui.quizQuestionScreen
 
 import android.app.Application
 import android.os.Build
@@ -42,9 +42,6 @@ import uk.learning.mathquiz.R
 import uk.learning.mathquiz.data.MathsQuizDBViewModel
 import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.data.TestResult
-import uk.learning.mathquiz.ui.quizQuestionScreen.Operator
-import uk.learning.mathquiz.ui.quizQuestionScreen.QuizQuestionState
-import uk.learning.mathquiz.ui.quizQuestionScreen.QuizQuestionViewModel
 import uk.learning.mathquiz.ui.theme.Blue
 import uk.learning.mathquiz.ui.theme.GreenMain
 import uk.learning.mathquiz.ui.theme.Red

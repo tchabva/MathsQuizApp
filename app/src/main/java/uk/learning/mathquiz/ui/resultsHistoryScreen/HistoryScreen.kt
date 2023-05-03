@@ -1,4 +1,4 @@
-package uk.learning.mathquiz.ui.screen
+package uk.learning.mathquiz.ui.resultsHistoryScreen
 
 import android.app.Application
 import androidx.compose.foundation.BorderStroke
@@ -10,10 +10,8 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.*
-import androidx.compose.material3.MaterialTheme.shapes
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Modifier
@@ -36,8 +34,6 @@ import uk.learning.mathquiz.R
 import uk.learning.mathquiz.data.MathsQuizDBViewModel
 import uk.learning.mathquiz.data.MathsQuizDbViewModelFactory
 import uk.learning.mathquiz.data.TestResult
-import uk.learning.mathquiz.ui.resultsHistoryScreen.NumbersDialog
-import uk.learning.mathquiz.ui.resultsHistoryScreen.OperatorDialog
 import uk.learning.mathquiz.ui.theme.Purple
 
 @OptIn(ExperimentalMaterial3Api::class)
