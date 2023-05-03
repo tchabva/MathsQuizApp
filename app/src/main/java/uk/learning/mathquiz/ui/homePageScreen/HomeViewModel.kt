@@ -14,33 +14,28 @@ class HomeViewModel(application: Application): AndroidViewModel(application) {
 
     private val mathsQuizVM = MathsQuizDBViewModel(application)
     private val allTestResults = mathsQuizVM.allTestResults
-    var isEmpty = MutableLiveData<Boolean>()
     private var _latestTestResult = MutableLiveData<TestResult>()
     val latestTestResult:LiveData<TestResult> = _latestTestResult
 
     //This runs when the ViewModel is called and checks if the view model is empty or not
     init {
         allTestResults.observeForever { items ->
-            when(items.isEmpty()){
-                true -> isEmpty.value = true
-                false -> {
-                    isEmpty.value = false
-                    _latestTestResult.value = items.firstOrNull()
-                }
+            _latestTestResult.value = items.firstOrNull()
+        }
+    }
+
+    private val _state = MutableStateFlow<HomeScreenState>(HomeScreenState.EmptyDb())
+
+    val state: StateFlow<HomeScreenState> = _state
+
+    //This run the when latestTestResult changes and updates the state accordingly
+    init {
+        latestTestResult.observeForever {item ->
+            _state.value = if (item == null){
+                HomeScreenState.EmptyDb()
+            }else{
+                HomeScreenState.DbNotEmpty()
             }
         }
     }
-
-    private val _state = when(isEmpty.value){
-        true -> {
-            MutableStateFlow<HomeScreenState>(HomeScreenState.EmptyDbState())
-        }
-        else ->{
-            MutableStateFlow<HomeScreenState>(HomeScreenState.DbNotEmpty())
-
-        }
-    }
-
-
-    val state: StateFlow<HomeScreenState> = _state
 }

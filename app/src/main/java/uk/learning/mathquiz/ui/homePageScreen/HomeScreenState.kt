@@ -5,7 +5,7 @@ viewmodel to alter what is presented to the user.
  */
 
 sealed class HomeScreenState(){
-    class EmptyDbState(): HomeScreenState()
+    class EmptyDb(): HomeScreenState()
 
     class DbNotEmpty(): HomeScreenState()
 }
