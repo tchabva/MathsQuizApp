@@ -44,13 +44,10 @@ android {
     }
     packagingOptions {
         resources {
-            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += ['/META-INF/{AL2.0,LGPL2.1}', 'META-INF/atomicfu.kotlin_module']
         }
     }
     //ROOM DB
-    packagingOptions {
-        exclude 'META-INF/atomicfu.kotlin_module'
-    }
 }
 
 // Allow references to generated code
