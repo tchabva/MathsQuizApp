@@ -46,7 +46,7 @@ fun OperatorDialog(
             //Operator Button
             Button(
                 modifier = Modifier
-                    .size(110.dp),
+                    .size(180.dp),
                 colors = ButtonDefaults.buttonColors(Color.White),
                 shape = RoundedCornerShape(8.dp),
                 elevation = ButtonDefaults.buttonElevation(16.dp),
@@ -100,7 +100,7 @@ fun DialogButton(
     //Operator Button
     Button(
         modifier = Modifier
-            .size(110.dp),
+            .size(180.dp),
         colors = ButtonDefaults.buttonColors(Color.White),
         shape = RoundedCornerShape(8.dp),
         elevation = ButtonDefaults.buttonElevation(16.dp),
