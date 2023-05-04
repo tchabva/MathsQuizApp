@@ -47,7 +47,7 @@ fun HistoryScreen(navController: NavController){
     var showOperatorDialog by remember{ mutableStateOf(false) }
     var showNumberListDialog by remember{ mutableStateOf(false) }
 
-    val resultsList = historyViewModel.allTestResults.observeAsState(listOf()).value
+    val resultsList = historyViewModel.getFilteredResults().observeAsState(listOf()).value
 
     //Testing 2
     
