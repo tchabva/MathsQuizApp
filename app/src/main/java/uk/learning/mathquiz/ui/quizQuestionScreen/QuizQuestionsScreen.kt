@@ -293,7 +293,7 @@ fun QuizQuestionsScreen(
     }
 }
 
-//Function changes the background colour of the answerBox Textfield dependent on the user answer
+//Function changes the background colour of the answerBox Text-field dependent on the user answer
 @Composable
 private fun getBoxColor(isCorrect: Boolean): Color {
     return if (isCorrect) {
