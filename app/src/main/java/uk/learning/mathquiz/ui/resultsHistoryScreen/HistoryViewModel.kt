@@ -32,14 +32,16 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         allTestResults.observeForever { results ->
             filteredResults = applyFilters(results)
         }
+        stateFunction()
+    }
+
+    private fun stateFunction(){
         _state.value = if(storedOperator == null && storedNumber == null){
             HistoryScreenState.NoFilter()
         } else{
-            HistoryScreenState.FiltersActive()
+            HistoryScreenState.FiltersActive(storedOperator.toString(), storedNumber.toString())
         }
     }
-
-
 
     /**
      * Apply filters to the results and return the filtered list as LiveData
@@ -48,6 +50,7 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         //Apply operator filter
         val filteredByOperator = if (storedOperator != null) {
             results.filter { it.operator == storedOperator }
+
         } else {
             results
         }
@@ -58,6 +61,8 @@ class HistoryViewModel(application: Application) : AndroidViewModel(application)
         } else {
             filteredByOperator
         }
+
+        stateFunction()
 
         return filteredByNumber.toLiveData()
     }
