@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Clear
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.livedata.observeAsState
@@ -37,20 +37,39 @@ import uk.learning.mathquiz.ui.theme.Purple
 fun HistoryScreen(navController: NavController){
 
     var operatorIcon by remember { mutableStateOf(R.drawable.ic_logo) }
-    var numberIcon by remember { mutableStateOf(Icons.Default.Add) }
+    var numberIcon by remember { mutableStateOf(R.drawable.ic_filter_alt) }
+    val multiplicationString = stringResource(id = R.string.multiplication)
+    val divisionString = stringResource(id = R.string.division)
 //    val context = LocalContext.current
 //    val mMathsQuizDBViewModel: MathsQuizDBViewModel = viewModel(
 //        factory = MathsQuizDbViewModelFactory(context.applicationContext as Application)
 //    )
     val historyViewModel: HistoryViewModel = viewModel()
+    val currentState = historyViewModel.state.collectAsState()
     var showClearIcon by remember { mutableStateOf(false) }
     var showOperatorDialog by remember{ mutableStateOf(false) }
     var showNumberListDialog by remember{ mutableStateOf(false) }
 
     val resultsList = historyViewModel.getFilteredResults().observeAsState(listOf()).value
 
-    //Testing 2
-    
+    when(currentState.value){
+        is HistoryScreenState.FiltersActive -> {
+            showClearIcon = true
+            operatorIcon = when(historyViewModel.storedOperator){
+                stringResource(R.string.multiplication) -> R.drawable.ic_multiplication_logo
+                stringResource(R.string.division) -> R.drawable.ic_division_logo
+                else -> {
+                    R.drawable.ic_logo
+                }
+            }
+              numberIcon = R.drawable.ic_number_1
+        }
+        is HistoryScreenState.NoFilter -> {
+            showClearIcon = false
+            operatorIcon = R.drawable.ic_logo
+        }
+    }
+
     //Top AppBar Scaffold
     Scaffold(
         topBar = {
@@ -76,7 +95,24 @@ fun HistoryScreen(navController: NavController){
                 },
                 //This will contain all of the icons at the end of the AppBar
                 actions = {
+                    /*
+                    Will show the clear filter Icon button if the HistoryState is in the active
+                    state and will clear the filter and revert the state back when clicked
+                     */
+                    if (showClearIcon){
+                        IconButton(onClick = {
+                            historyViewModel.filterByNumber(null)
+                            historyViewModel.filterByOperator(null)
+                        }) {
+                            Icon(
+                                Icons.Default.Clear,
+                                tint = Color.White,
+                                contentDescription = stringResource(id = R.string.operator_filter)
+                            )
+                        }
+                    }
 
+                    //Icon button for the Operator Dialog
                     IconButton(onClick = { showOperatorDialog = true }) {
                         Icon(
                             painter = painterResource(id = operatorIcon),
@@ -84,10 +120,10 @@ fun HistoryScreen(navController: NavController){
                         )
                     }
 
-                    //The filter for the numbers TODO
+                    //The filter for the Number Dialog
                     IconButton(onClick = { showNumberListDialog = true }) {
                         Icon(
-                            numberIcon,
+                            painter = painterResource(id = numberIcon),
                             contentDescription = stringResource(id = R.string.number_filter)
                         )
                     }
@@ -105,7 +141,7 @@ fun HistoryScreen(navController: NavController){
             //The list of Test History Items that are in the DB
             LazyColumn {
                 items(resultsList.size){
-                    index ->
+                        index ->
                     TestHistoryItem(resultsList[index])
                 }
             }
@@ -117,19 +153,28 @@ fun HistoryScreen(navController: NavController){
         OperatorDialog(
             //Operator dialog buttons
             onDismissRequest = { showOperatorDialog = false },
-            onAllOperatorsClick = { showOperatorDialog = false },
-            onMultiplicationClick = { showOperatorDialog = false },
-            onDivisionClick = {showOperatorDialog = false}
+            onAllOperatorsClick = {
+                historyViewModel.filterByOperator(null)
+                showOperatorDialog = false
+            },
+            onMultiplicationClick = {
+                historyViewModel.filterByOperator(multiplicationString)
+                showOperatorDialog = false
+            },
+            onDivisionClick = {
+                historyViewModel.filterByOperator(divisionString)
+                showOperatorDialog = false
+            }
         )
     }
 
     if(showNumberListDialog){
-       NumbersDialog(
-           //Number dialog buttons
-           onDismissRequest = { showNumberListDialog = false },
-           onNumberSelected = { showNumberListDialog = false  },
-           onAllNumbersClick = { showNumberListDialog = false  }
-       )
+        NumbersDialog(
+            //Number dialog buttons
+            onDismissRequest = { showNumberListDialog = false },
+            onNumberSelected = { showNumberListDialog = false  },
+            onAllNumbersClick = { showNumberListDialog = false  }
+        )
     }
 }
 
