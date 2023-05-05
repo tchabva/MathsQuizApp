@@ -102,7 +102,9 @@ fun NumbersDialog(
                                     contentDescription = "Number $number",
                                     modifier = Modifier
                                         .clip(RoundedCornerShape(8.dp))
-                                        .clickable { onNumberSelected(number) }
+                                        .clickable {
+                                            onNumberSelected(number)
+                                        }
                                 )
                             }
                         }
