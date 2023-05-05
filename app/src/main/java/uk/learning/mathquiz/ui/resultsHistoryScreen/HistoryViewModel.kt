@@ -9,7 +9,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import uk.learning.mathquiz.data.MathsQuizDBViewModel
 import uk.learning.mathquiz.data.TestResult
-import uk.learning.mathquiz.ui.homePageScreen.HomeScreenState
 
 class HistoryViewModel(application: Application) : AndroidViewModel(application) {
 
