@@ -35,23 +35,21 @@ import uk.learning.mathquiz.ui.theme.Purple
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun HistoryScreen(navController: NavController){
-
+    //Variables
     var operatorIcon by remember { mutableStateOf(R.drawable.ic_logo) }
-    var numberIcon by remember { mutableStateOf(R.drawable.ic_filter_alt) }
+    var numberIcon = (painterResource(id = R.drawable.ic_filter_alt))
     val multiplicationString = stringResource(id = R.string.multiplication)
     val divisionString = stringResource(id = R.string.division)
-//    val context = LocalContext.current
-//    val mMathsQuizDBViewModel: MathsQuizDBViewModel = viewModel(
-//        factory = MathsQuizDbViewModelFactory(context.applicationContext as Application)
-//    )
     val historyViewModel: HistoryViewModel = viewModel()
     val currentState = historyViewModel.state.collectAsState()
     var showClearIcon by remember { mutableStateOf(false) }
     var showOperatorDialog by remember{ mutableStateOf(false) }
     var showNumberListDialog by remember{ mutableStateOf(false) }
 
+    //Collects the filtered result from the ViewModel
     val resultsList = historyViewModel.getFilteredResults().observeAsState(listOf()).value
 
+    //Dictates what we see based on the state of the filter
     when(currentState.value){
         is HistoryScreenState.FiltersActive -> {
             showClearIcon = true
@@ -62,11 +60,12 @@ fun HistoryScreen(navController: NavController){
                     R.drawable.ic_logo
                 }
             }
-              numberIcon = R.drawable.ic_number_1
+            numberIcon = getNumberImage(number = historyViewModel.storedNumber.toString())
         }
         is HistoryScreenState.NoFilter -> {
             showClearIcon = false
             operatorIcon = R.drawable.ic_logo
+            numberIcon = (painterResource(id = R.drawable.ic_filter_alt))
         }
     }
 
@@ -80,7 +79,7 @@ fun HistoryScreen(navController: NavController){
                         text = stringResource(id = R.string.test_history_label),
                         fontFamily = FontFamily.Serif,
                         color = Color.White,
-                        fontSize = 32.sp,
+                        fontSize = 28.sp,
                         fontWeight = FontWeight.SemiBold
                     )
                 },
@@ -123,7 +122,7 @@ fun HistoryScreen(navController: NavController){
                     //The filter for the Number Dialog
                     IconButton(onClick = { showNumberListDialog = true }) {
                         Icon(
-                            painter = painterResource(id = numberIcon),
+                            painter = numberIcon,
                             contentDescription = stringResource(id = R.string.number_filter)
                         )
                     }
@@ -148,7 +147,7 @@ fun HistoryScreen(navController: NavController){
         }
     }
 
-    //The Stand-in operator dialog
+    //Operator Dialog and filter
     if(showOperatorDialog){
         OperatorDialog(
             //Operator dialog buttons
@@ -168,17 +167,24 @@ fun HistoryScreen(navController: NavController){
         )
     }
 
+    //Number Dialog and filter
     if(showNumberListDialog){
         NumbersDialog(
             //Number dialog buttons
             onDismissRequest = { showNumberListDialog = false },
-            onNumberSelected = { showNumberListDialog = false  },
-            onAllNumbersClick = { showNumberListDialog = false  }
+            onNumberSelected = { number ->
+                historyViewModel.filterByNumber(number.toString())
+                showNumberListDialog = false
+            },
+            onAllNumbersClick = {
+                historyViewModel.filterByNumber(null)
+                showNumberListDialog = false
+            }
         )
     }
 }
 
-//Test History Item
+//Test History Item Composable function 
 @Composable
 fun TestHistoryItem(result: TestResult) {
     //Background card
