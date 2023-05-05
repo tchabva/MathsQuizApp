@@ -30,7 +30,12 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import uk.learning.mathquiz.R
 import uk.learning.mathquiz.data.TestResult
+import uk.learning.mathquiz.ui.theme.Blue
+import uk.learning.mathquiz.ui.theme.GreenSecond
+import uk.learning.mathquiz.ui.theme.Orange
 import uk.learning.mathquiz.ui.theme.Purple
+import uk.learning.mathquiz.ui.theme.Red
+import uk.learning.mathquiz.ui.theme.Yellow2
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -38,6 +43,8 @@ fun HistoryScreen(navController: NavController){
     //Variables
     var operatorIcon by remember { mutableStateOf(R.drawable.ic_logo) }
     var numberIcon = (painterResource(id = R.drawable.ic_filter_alt))
+    var iconTint by remember{ mutableStateOf(Color.LightGray) }
+    var numberTint by remember{ mutableStateOf(Color.Black) }
     val multiplicationString = stringResource(id = R.string.multiplication)
     val divisionString = stringResource(id = R.string.division)
     val historyViewModel: HistoryViewModel = viewModel()
@@ -61,11 +68,18 @@ fun HistoryScreen(navController: NavController){
                 }
             }
             numberIcon = getNumberImage(number = historyViewModel.storedNumber.toString())
+            numberTint = getNumberIconColor(number = historyViewModel.storedNumber.toString())
+            iconTint = if(historyViewModel.storedOperator == stringResource(id = R.string.multiplication)){
+                Blue
+            }else{
+                Red
+            }
         }
         is HistoryScreenState.NoFilter -> {
             showClearIcon = false
             operatorIcon = R.drawable.ic_logo
-            numberIcon = (painterResource(id = R.drawable.ic_filter_alt))
+            numberIcon = (painterResource(id = R.drawable.ic_numbers_icon_button))
+            iconTint = Color.LightGray
         }
     }
 
@@ -115,7 +129,8 @@ fun HistoryScreen(navController: NavController){
                     IconButton(onClick = { showOperatorDialog = true }) {
                         Icon(
                             painter = painterResource(id = operatorIcon),
-                            contentDescription = stringResource(id = R.string.operator_filter)
+                            contentDescription = stringResource(id = R.string.operator_filter),
+                            tint = iconTint
                         )
                     }
 
@@ -123,7 +138,8 @@ fun HistoryScreen(navController: NavController){
                     IconButton(onClick = { showNumberListDialog = true }) {
                         Icon(
                             painter = numberIcon,
-                            contentDescription = stringResource(id = R.string.number_filter)
+                            contentDescription = stringResource(id = R.string.number_filter),
+                            tint = numberTint
                         )
                     }
                 }
@@ -184,7 +200,7 @@ fun HistoryScreen(navController: NavController){
     }
 }
 
-//Test History Item Composable function 
+//Test History Item Composable function
 @Composable
 fun TestHistoryItem(result: TestResult) {
     //Background card
@@ -256,6 +272,25 @@ fun TestHistoryItem(result: TestResult) {
 
 //This function gets the right number for the each Test Result
 @Composable
+private fun getNumberIconColor(number: String): Color{
+    return when(number){
+        stringResource(id = R.string.number_1) -> Color.Red
+        stringResource(id = R.string.number_2) -> Color.Yellow
+        stringResource(id = R.string.number_3) -> Color.Blue
+        stringResource(id = R.string.number_4) -> GreenSecond
+        stringResource(id = R.string.number_5) -> Color.DarkGray
+        stringResource(id = R.string.number_6) -> Yellow2
+        stringResource(id = R.string.number_7) -> Blue
+        stringResource(id = R.string.number_8) -> Orange
+        stringResource(id = R.string.number_9) -> Color.Magenta
+        stringResource(id = R.string.number_10) -> Red
+        stringResource(id = R.string.number_11) -> Color.Green
+        stringResource(id = R.string.number_12) -> Color.White
+        else -> {Color.Black}
+    }
+}
+
+@Composable
 private fun getNumberImage(number: String): Painter{
     return when(number){
         stringResource(id = R.string.number_1) -> painterResource(id = R.drawable.ic_number_1)
@@ -273,6 +308,8 @@ private fun getNumberImage(number: String): Painter{
         else -> {painterResource(id = R.drawable.ic_clear)}
     }
 }
+
+
 //This function gets the right content description for each number
 @Composable
 private fun getNumberDescription(number: String): String{
