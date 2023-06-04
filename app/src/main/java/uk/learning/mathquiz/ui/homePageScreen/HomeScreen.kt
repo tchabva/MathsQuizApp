@@ -47,104 +47,14 @@ fun HomeScreen(navController: NavController) {
     var userName by remember{ mutableStateOf("") }
     var showContinueAsButton by remember{ mutableStateOf(false) }
 
+    //Determines the state of the screen depending on the state
     when(state){
         is HomeScreenState.EmptyDb -> {
             showContinueAsButton = false
-
-//            //Background column for the entire HomeScreen when the Database is Empty
-//            Column(
-//                modifier = Modifier
-//                    .fillMaxSize()
-//                    .background(Color.White)
-//                    .padding(16.dp),
-//                horizontalAlignment = Alignment.CenterHorizontally,
-//
-//                ) {
-//
-//                Spacer(modifier = Modifier.height(36.dp))
-//
-//                //Maths Quiz Text
-//                HomeScreenText(
-//                    textResource = R.string.app_name_internal,
-//                    size = 62,
-//                    colour = Purple,
-//                    weight = FontWeight.ExtraBold
-//                )
-//
-//                Spacer(modifier = Modifier.height(44.dp))
-//
-//                //Card details function
-//                EnterNameCard(navController)
-//
-//                //Column containing Test History Button
-//                Column(
-//                    modifier = Modifier.fillMaxSize(),
-//                    verticalArrangement = Arrangement.Center
-//                ) {
-//                    //Test History Button
-//                    HomeScreenButton(
-//                        textResource = R.string.test_history_btn_text,
-//                        padding = 8
-//                    ) {
-//                        navController.navigate("History")
-//                    }
-//                }
-//            }
         }
         is HomeScreenState.DbNotEmpty -> {
             showContinueAsButton = true
             userName = homeViewModel.latestTestResult.observeAsState().value?.name.toString()
-
-//            //Background column for the entire HomeScreen when the Database is not Empty
-//            Column(
-//                modifier = Modifier
-//                    .fillMaxSize()
-//                    .background(Color.White)
-//                    .padding(16.dp),
-//                horizontalAlignment = Alignment.CenterHorizontally,
-//
-//                ) {
-//
-//                Spacer(modifier = Modifier.height(36.dp))
-//
-//                //Maths Quiz Text
-//                HomeScreenText(
-//                    textResource = R.string.app_name_internal,
-//                    size = 62,
-//                    colour = Purple,
-//                    weight = FontWeight.ExtraBold
-//                )
-//
-//                Spacer(modifier = Modifier.height(44.dp))
-//
-//                //Card details function
-//                EnterNameCard(navController)
-//
-//                //Column containing the Continue As and Test History Buttons
-//                Column(
-//                    modifier = Modifier.fillMaxSize(),
-//                    verticalArrangement = Arrangement.Center
-//                ) {
-//                    //Continue as Button
-//                    HomeScreenButton(
-//                        textResource = R.string.continue_as_btn_txt,
-//                        textArg = userName,
-//                        padding = 8
-//                    ) {
-//                        navController.navigate("Landing/${userName}")
-//                    }
-//
-//                    Spacer(modifier = Modifier.height(32.dp))
-//
-//                    //Test History Button
-//                    HomeScreenButton(
-//                        textResource = R.string.test_history_btn_text,
-//                        padding = 8
-//                    ) {
-//                        navController.navigate("History")
-//                    }
-//                }
-//            }
         }
     }
 
