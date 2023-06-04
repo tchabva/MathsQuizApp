@@ -115,7 +115,7 @@ fun HomeScreen(navController: NavController) {
 }
 
 //Enter name card
-@OptIn(ExperimentalMaterial3Api::class)
+
 @Composable
 fun EnterNameCard(navController: NavController) {
     //This will create the context for the toast.
@@ -187,18 +187,20 @@ fun EnterNameCard(navController: NavController) {
                             weight = FontWeight.Medium
                         )
                     },
-                    colors = TextFieldDefaults.outlinedTextFieldColors(
-                        textColor = Purple,
-                        focusedBorderColor = Purple,
-                        focusedLabelColor = Purple,
-                        containerColor = Color.White,
+                    colors = OutlinedTextFieldDefaults.colors(
+                        focusedTextColor = Purple,
+                        focusedContainerColor = Color.White,
+                        unfocusedContainerColor = Color.White,
+                        disabledContainerColor = Color.White,
                         cursorColor = GreenMain,
-                        unfocusedLabelColor = Purple,
-                        unfocusedBorderColor = Purple,
                         selectionColors = TextSelectionColors(
                             handleColor = GreenMain,
                             backgroundColor = GreenMain
-                        )
+                        ),
+                        focusedBorderColor = Purple,
+                        unfocusedBorderColor = Purple,
+                        focusedLabelColor = Purple,
+                        unfocusedLabelColor = Purple,
                     ),
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.Words,

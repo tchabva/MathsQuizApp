@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
-
 package uk.learning.mathquiz.ui.quizQuestionScreen
 
 import android.app.Application
@@ -46,7 +44,9 @@ import uk.learning.mathquiz.ui.theme.Blue
 import uk.learning.mathquiz.ui.theme.GreenMain
 import uk.learning.mathquiz.ui.theme.Red
 
-
+/*
+This is the screen where the user takes the Quiz
+ */
 @RequiresApi(Build.VERSION_CODES.N)
 @Composable
 fun QuizQuestionsScreen(
@@ -201,14 +201,14 @@ fun QuizQuestionsScreen(
                 fontSize = 32.sp,
                 textAlign = TextAlign.Center,
             ),
-            colors = TextFieldDefaults.outlinedTextFieldColors(
+            colors = OutlinedTextFieldDefaults.colors(
+                focusedTextColor = Color.Black,
+                disabledTextColor = Color.Black,
                 cursorColor = colorResource(R.color.orange),
                 selectionColors = TextSelectionColors(
                     handleColor = colorResource(R.color.yellow),
                     backgroundColor = colorResource(R.color.orange),
                 ),
-                textColor = Color.Black,
-                disabledTextColor = Color.Black
             ),
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Number,
