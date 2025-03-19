@@ -21,6 +21,9 @@ output.json
 misc.xml
 deploymentTargetDropDown.xml
 render.experimental.xml
+.idea/compiler.xml
+.idea/kotlinc.xml
+.idea/misc.xml
 
 # Keystore files
 *.jks
