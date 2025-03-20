@@ -96,7 +96,7 @@ techniques, including dependency injection with Hilt and persistence with Room.
 
 - Android Studio Flamingo (2022.2.1) or newer
 - JDK 11 or higher
-- Android SDK 24+
+- Android SDK 21+
 
 ### Installation
 
@@ -114,7 +114,7 @@ techniques, including dependency injection with Hilt and persistence with Room.
 Feel free to reach out for any questions or collaboration opportunities!
 
 - GitHub: [tchabva](https://github.com/tchabva)
-- Email: [[tawandachabva@gmail.com](mailto:tawandachabva@gmail.com)
+- Email: [tawandachabva@gmail.com](mailto:tawandachabva@gmail.com)
 - LinkedIn: [linkedin.com/in/tawandachabva](https://www.linkedin.com/in/tawandachabva/)
 
 ---
