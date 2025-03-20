@@ -102,10 +102,9 @@ techniques, including dependency injection with Hilt and persistence with Room.
 
 1. Clone the repository:
 
-   Copy
-
-   `git clone https://github.com/tchabva/MathsQuizApp.git`
-
+    ```bash
+     git clone https://github.com/tchabva/MathsQuizApp.git
+    ```
 2. Open the project in Android Studio
 3. Sync Gradle and build the project
 4. Run on an emulator or physical device (min SDK 21)
@@ -115,7 +114,7 @@ techniques, including dependency injection with Hilt and persistence with Room.
 Feel free to reach out for any questions or collaboration opportunities!
 
 - GitHub: [tchabva](https://github.com/tchabva)
-- Email: [[tawandachabva@gmail.com](mailto:tawandachabva@gmail.com)] (replace with your actual email)
+- Email: [[tawandachabva@gmail.com](mailto:tawandachabva@gmail.com)
 - LinkedIn: [linkedin.com/in/tawandachabva](https://www.linkedin.com/in/tawandachabva/)
 
 ---
