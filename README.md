@@ -60,15 +60,15 @@ techniques, including dependency injection with Hilt and persistence with Room.
   <tr>
     <td style="text-align:center">
       <img src="screenshots/numbers_divide_screen.png" alt="Select Number - Divide" width="1080"/>
-      <p><em>Selecting the number - Divide</em></p>
+      <p><em>Selecting A Number - Division</em></p>
     </td>
     <td style="text-align:center">
       <img src="screenshots/numbers_multiply_screen.png" alt="" width="1080"/>
-      <p><em>Record Shop Home Screen</em></p>
+      <p><em>Selecting A Number - Multiplication</em></p>
     </td>
     <td style="text-align:center">
       <img src="screenshots/quiz_question_multiply.png" alt="Quiz Question Screen - Multiply" width="1080"/>
-      <p><em>Quiz Question Screen</em></p>
+      <p><em>Quiz Question Screen - Multiplication</em></p>
     </td>
   </tr>
 
