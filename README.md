@@ -54,21 +54,29 @@ techniques, including dependency injection with Hilt and persistence with Room.
       <img src="screenshots/pick_operation_screen.png" alt="Select Operator" width="1080"/>
       <p><em>Select Operation Screen</em></p>
     </td>
-    <td style="text-align:center">
-      <img src="screenshots/numbers_divide_screen.png" alt="Select Number - Divide" width="1080"/>
-      <p><em>Selecting the number - Divide</em></p>
-    </td>
   </tr>
 
   <!-- Row 2 -->
   <tr>
     <td style="text-align:center">
+      <img src="screenshots/numbers_divide_screen.png" alt="Select Number - Divide" width="1080"/>
+      <p><em>Selecting the number - Divide</em></p>
+    </td>
+    <td style="text-align:center">
       <img src="screenshots/numbers_multiply_screen.png" alt="" width="1080"/>
       <p><em>Record Shop Home Screen</em></p>
     </td>
     <td style="text-align:center">
-      <img src="screenshots/quiz_question.png" alt="Quiz Question Screen" width="1080"/>
+      <img src="screenshots/quiz_question_multiply.png" alt="Quiz Question Screen - Multiply" width="1080"/>
       <p><em>Quiz Question Screen</em></p>
+    </td>
+  </tr>
+
+<!-- Row 3 -->
+  <tr>
+    <td style="text-align:center">
+      <img src="screenshots/quiz_question_divide.png" alt="Quiz Question Screen - Division" width="1080"/>
+      <p><em>Quiz Question Screen - Division</em></p>
     </td>
     <td style="text-align:center">
       <img src="screenshots/result_page.png" alt="Result Screen" width="1080"/>
@@ -79,7 +87,6 @@ techniques, including dependency injection with Hilt and persistence with Room.
       <p><em>History Screen</em></p>
     </td>
   </tr>
-
 </table>
 
 ## Future Enhancements
